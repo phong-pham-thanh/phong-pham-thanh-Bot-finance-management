@@ -58,11 +58,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: python-app
-          path: ./artifact
+          # path: ./artifact
       
       
       - name: 📦 Kiểm tra nội dung zip
-        run: unzip -l ./artifact/release.zip
+        run: unzip -l release.zip
 
       # - name: Unzip artifact for deployment
       #   run: unzip release.zip
