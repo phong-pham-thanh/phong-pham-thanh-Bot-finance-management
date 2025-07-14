@@ -1,0 +1,13 @@
+# Bỏ qua file .env chứa token
+.env
+
+# Thư mục ảo Python
+__pycache__/
+*.pyc
+
+# File hệ thống
+.DS_Store
+*.log
+
+# VS Code config
+.vscode/
