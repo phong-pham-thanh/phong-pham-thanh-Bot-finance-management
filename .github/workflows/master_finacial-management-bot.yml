@@ -76,4 +76,5 @@ jobs:
         with:
           app-name: 'finacial-management-bot'
           slot-name: 'Production'
+          package: ./release.zip
           
