@@ -62,7 +62,7 @@ jobs:
       
       
       - name: 📦 Kiểm tra nội dung zip
-        run: unzip -l release.zip
+        run: unzip release.zip
 
       # - name: Unzip artifact for deployment
       #   run: unzip release.zip
