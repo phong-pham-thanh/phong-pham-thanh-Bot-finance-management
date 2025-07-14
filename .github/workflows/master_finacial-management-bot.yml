@@ -64,6 +64,8 @@ jobs:
       - name: 📦 Kiểm tra nội dung zip
         run: unzip release.zip -d ./unzipped
 
+      - name: 📦 Nén lại thư mục ./unzipped thành deploy.zip
+        run: cd ./unzipped && zip -r ../deploy.zip . && cd ..
       # - name: Unzip artifact for deployment
       #   run: unzip release.zip
       
@@ -75,13 +77,10 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7B374FFA8A154791A7EC05E1E8C85CEE }}
     
 
-      - name: Xem thư mục deploy
-        run: ls -R ./unzipped
-        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'finacial-management-bot'
           slot-name: 'Production'
-          package: ./unzipped
+          package: ./deploy.zip
