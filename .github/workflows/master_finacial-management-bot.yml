@@ -73,7 +73,11 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8F0682C475184D338FC6464F85FF176F }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D77EBBE4DCCB484F9A480C1EECA5C92D }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7B374FFA8A154791A7EC05E1E8C85CEE }}
+    
 
+      - name: Xem thư mục deploy
+        run: ls -R ./unzipped
+        
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
