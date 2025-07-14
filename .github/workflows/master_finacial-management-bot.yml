@@ -54,9 +54,6 @@ jobs:
       contents: read #This is required for actions/checkout
 
     steps:
-      - name: Checkout code again (needed for deploy context)
-        uses: actions/checkout@v4
-        
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
@@ -80,3 +77,4 @@ jobs:
           app-name: 'finacial-management-bot'
           slot-name: 'Production'
           package: ./release.zip
+          
