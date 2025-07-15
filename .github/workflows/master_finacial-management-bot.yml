@@ -61,8 +61,8 @@ jobs:
           # path: ./artifact
       
       
-      # - name: 📦 Kiểm tra nội dung zip
-      #   run: unzip release.zip -d ./unzipped
+      - name: 📦 Kiểm tra nội dung zip
+        run: unzip release.zip -d ./unzipped
 
       - name: 📦 Nén lại thư mục ./unzipped thành deploy.zip
         run: |
