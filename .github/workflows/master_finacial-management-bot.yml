@@ -61,11 +61,11 @@ jobs:
           # path: ./artifact
       
       
-      # - name: 📦 Kiểm tra nội dung zip
-      #   run: unzip release.zip -d ./unzipped
+      - name: 📦 Kiểm tra nội dung zip
+        run: unzip release.zip -d ./unzipped
 
-      # - name: 📦 Nén lại thư mục ./unzipped thành deploy.zip
-      #   run: cd ./unzipped && zip -r ../deploy.zip . && cd ..
+      - name: 📦 Nén lại thư mục ./unzipped thành deploy.zip
+        run: cd ./unzipped && zip -r ../deploy.zip . && cd ..
       # - name: Unzip artifact for deployment
       #   run: unzip release.zip
       
@@ -83,4 +83,4 @@ jobs:
         with:
           app-name: 'finacial-management-bot'
           slot-name: 'Production'
-          package: release.zip
+          package: ./deploy.zip
