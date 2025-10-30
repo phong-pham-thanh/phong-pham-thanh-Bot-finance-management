@@ -47,7 +47,7 @@ def add_expense(reason: str, amount: int):
 
     print(f"✅ Đã thêm: {createdDate} | {reason} | {amount}đ")
 
-def main():
+async def main():
     if not BOT_TOKEN:
         print("❌ Không tìm thấy BOT_TOKEN trong biến môi trường.")
         return
@@ -56,8 +56,16 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     print("🤖 Bot đang chạy...")
-    app.run_polling()  # ⚡ chạy trực tiếp, không asyncio.run()
+    await app.initialize()      # 👈 bảo đảm ExtBot được khởi tạo
+    await app.start()           # bắt đầu bot
+    await app.updater.start_polling()  # bắt đầu lấy tin nhắn
+
+    # Đợi cho đến khi nhấn Ctrl+C
+    await asyncio.Event().wait()
+
+    await app.stop()
+    await app.shutdown()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
